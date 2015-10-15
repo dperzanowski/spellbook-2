@@ -20,7 +20,8 @@ class SpellsController < ApplicationController
   end
 
   def destroy
-
+    @spell.destroy
+    respond_with @spell
   end
 
   private
