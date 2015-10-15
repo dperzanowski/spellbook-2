@@ -8,25 +8,14 @@ class SpellsController < ApplicationController
     respond_with @spells
   end
 
-  def new
+  def create
+    @spell.save
     respond_with @spell
   end
-
-  def create
-
-  end
-
-  # def edit
-  #
-  # end
 
   def update
     @spell.update(spell_params)
 
-    respond_with @spell
-  end
-
-  def show
     respond_with @spell
   end
 
