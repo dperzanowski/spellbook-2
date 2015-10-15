@@ -6,13 +6,13 @@
     %strong
       Level
   %div.col-xs-9
-    =@spell.level
+    =@spell.print_level
 %div.row
   %div.col-xs-3.text-right
     %strong
       Ritual
   %div.col-xs-9
-    =@spell.ritual
+    =@spell.ritual.to_s.titleize
 %div.row
   %div.col-xs-3.text-right
     %strong
