@@ -21,6 +21,7 @@ gem 'responders'
 
 gem 'cocoon'
 gem 'haml-rails'
+gem 'pg_search'
 
 gem 'pundit'
 

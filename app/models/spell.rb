@@ -1,4 +1,7 @@
 class Spell < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:name, :level, :school, :source]
+
   enum spell_levels: [
     "Cantrip",
     "Level 1",
@@ -9,7 +12,7 @@ class Spell < ActiveRecord::Base
     "Level 6",
     "Level 7",
     "Level 8",
-    "Level 9", 
+    "Level 9",
   ]
   def print_level
     if self.level == 0
