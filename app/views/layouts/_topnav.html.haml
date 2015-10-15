@@ -1,0 +1,10 @@
+%nav.navbar.navbar-default
+  %div.container-fluid
+    %div.navbar-header
+      %button{"type" => "button", "class" => "navbar-toggle collapsed", "data-toggle" => "collapse", "data-target" => "#bs-example-navbar-collapse-1", "aria-expanded" => "false"}
+        %span.sr-only Toggle navigation
+      = link_to "Spellbook", root_path, {class: "navbar-brand"}
+    %div#topnav.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to "Spells", spells_path
