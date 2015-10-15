@@ -1,0 +1,51 @@
+%h1
+  = @spell.name.titleize
+
+%div.row
+  %div.col-xs-3.text-right
+    %strong
+      Level
+  %div.col-xs-9
+    =@spell.level
+%div.row
+  %div.col-xs-3.text-right
+    %strong
+      Ritual
+  %div.col-xs-9
+    =@spell.ritual
+%div.row
+  %div.col-xs-3.text-right
+    %strong
+      School
+  %div.col-xs-9
+    =@spell.school
+%div.row
+  %div.col-xs-3.text-right
+    %strong
+      Components
+  %div.col-xs-9
+    =@spell.components
+%div.row
+  %div.col-xs-3.text-right
+    %strong
+      Source
+  %div.col-xs-9
+    =@spell.source
+%div.row
+  %div.col-xs-3.text-right
+    %strong
+      Description
+  %div.col-xs-9
+    =@spell.description.html_safe
+%div.row
+  %div.col-xs-3.text-right
+    %strong
+      Range
+  %div.col-xs-9
+    =@spell.range
+%div.row
+  %div.col-xs-3.text-right
+    %strong
+      Duration
+  %div.col-xs-9
+    =@spell.duration

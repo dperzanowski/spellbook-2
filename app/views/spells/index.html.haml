@@ -1,0 +1,6 @@
+%h1 Spell List
+%div.row
+  %div.col-xs-9
+    = render 'spell_table', spells: @spells
+  %div.col-xs-3
+    = render 'filter_list', spells: @spells

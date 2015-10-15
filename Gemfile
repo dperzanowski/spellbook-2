@@ -22,6 +22,8 @@ gem 'responders'
 gem 'cocoon'
 gem 'haml-rails'
 
+gem 'pundit'
+
 group :development, :test do
   gem 'byebug'
   gem 'spring'
