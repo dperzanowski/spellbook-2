@@ -20,7 +20,7 @@ gem 'simple_form'
 gem 'responders'
 
 gem 'cocoon'
-gem 'haml', '~> 4.0.7'
+gem 'haml-rails'
 
 group :development, :test do
   gem 'byebug'
