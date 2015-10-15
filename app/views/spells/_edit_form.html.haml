@@ -1,0 +1,14 @@
+= simple_form_for spell, html: {class: 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :level, collection: Spell::spell_levels
+  = f.input :ritual
+  = f.input :school
+  = f.input :components
+  = f.input :source
+  = f.input :description
+  = f.input :casting_time
+  = f.input :range
+  = f.input :duration
+
+  %div.btn-group.pull-right
+    = f.button :submit, :class => 'btn btn-primary'
