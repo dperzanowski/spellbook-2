@@ -1,5 +1,6 @@
 %h1
   = @spell.name.titleize
+= render 'spell_actions', spell: @spell
 
 %div.row
   %div.col-xs-3.text-right
