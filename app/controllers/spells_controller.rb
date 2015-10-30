@@ -4,7 +4,7 @@ class SpellsController < ApplicationController
   respond_to :html, :js, :json
 
   def index
-    @spells = Spell.all
+    @spells = Spell.order(:name).page params[:page]
     respond_with @spells
   end
 
