@@ -25,6 +25,8 @@ gem 'pg_search'
 
 gem 'pundit'
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'byebug'
   gem 'spring'
