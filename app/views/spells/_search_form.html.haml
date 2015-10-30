@@ -1,0 +1,3 @@
+= simple_form_for spells_path, :html =>{:role => 'form', :id => 'spell-filter',:method => :get, :'data-update-target' => 'spells'} do |f|
+  = f.input :search_query
+  = f.button :submit, :class => 'btn btn-primary', value: "Search Spells"
