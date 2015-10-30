@@ -4,7 +4,25 @@ class SpellsController < ApplicationController
   respond_to :html, :js, :json
 
   def index
+    @spell_schools = Spell.order(school: :asc).uniq.pluck(:school)
+    @spell_levels = Spell.order(level: :asc).uniq.pluck(:level)
+    # @player_classes = PlayerClass.order(name: :asc).uniq.pluck(:name)
+    @spell_sources = Spell.order(source: :asc).uniq.pluck(:source)
+
     @spells = Spell.order(:name).page params[:page]
+
+    if params['filters'].present?
+      params['filters']['spell_levels'] = params['filters']['spell_levels'].reject {|item| item.empty?}
+      params['filters']['spell_schools'] = params['filters']['spell_schools'].reject {|item| item.empty?}
+      params['filters']['spell_source'] = params['filters']['spell_source'].reject {|item| item.empty?}
+
+      @spells = Spell.where(nil)
+      # @spells = PlayerClass.where(name: params['filters'][:player_class]).first.spells if(params['filters'][:player_class]).present?
+      @spells = @spells.level(params['filters']['spell_levels']) if (params['filters']['spell_levels'].present?)
+      @spells = @spells.school(params['filters']['spell_schools']) if (params['filters']['spell_schools'].present?)
+      @spells = @spells.source(params['filters']['spell_source']) if (params['filters']['spell_source'].present?)
+    end
+
     respond_with @spells
   end
 

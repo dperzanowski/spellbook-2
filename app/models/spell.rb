@@ -14,6 +14,11 @@ class Spell < ActiveRecord::Base
     "Level 8",
     "Level 9",
   ]
+
+  scope :level, -> (level) { where level: level }
+  scope :school, -> (school) { where school: school }
+  scope :source, -> (source) { where source: source }
+
   def print_level
     if self.level == 0
       return "Cantrip"
