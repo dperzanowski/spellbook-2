@@ -42,4 +42,6 @@ group :development, :test do
   gem 'faker', '~> 1.4.3'
 
   gem 'rails-footnotes'
+  gem 'binding_of_caller'
+  gem 'better_errors'
 end
