@@ -3,17 +3,17 @@
   %fieldset
     %label
       Spell Source
-    = f.input :spell_source, collection: @spell_sources, as: :check_boxes, label: false, :checked => params["filters"]["spell_source"]
+    = f.input :spell_source,collection: @spell_sources, as: :check_boxes, label: false, :checked => params["filters"].try(:[], :spell_source)
   %fieldset
     %label
       Spell School
-    = f.input :spell_schools, collection: @spell_schools, as: :check_boxes, label: false, :checked => params["filters"]["spell_schools"]
+    = f.input :spell_schools, collection: @spell_schools, as: :check_boxes, label: false, :checked => params["filters"].try(:[], :spell_schools)
   %fieldset
     %label
       Spell Level
-    = f.input :spell_levels, collection: @spell_levels.map { |level| (level == 0) ? ["Cantrip", level] : ["Level #{level}", level] }, as: :check_boxes, label: false, :checked => params["filters"]["spell_levels"]
+    = f.input :spell_levels, collection: @spell_levels.map { |level| (level == 0) ? ["Cantrip", level] : ["Level #{level}", level] }, as: :check_boxes, label: false, :checked => params["filters"].try(:[], :spell_levels)
   %fieldset
     %label
       Spell Type
-    = f.input :spell_types, collection: {"Ritual" => 1}, as: :check_boxes, label: false, :checked => params["filters"]["spell_types"]
+    = f.input :spell_types, collection: {"Ritual" => 1}, as: :check_boxes, label: false, :checked => params["filters"].try(:[], :spell_types)
   = f.submit :class => 'btn btn-default', :value => 'Filter'
