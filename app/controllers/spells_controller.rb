@@ -15,12 +15,14 @@ class SpellsController < ApplicationController
       params['filters']['spell_levels'] = params['filters']['spell_levels'].reject {|item| item.empty?}
       params['filters']['spell_schools'] = params['filters']['spell_schools'].reject {|item| item.empty?}
       params['filters']['spell_source'] = params['filters']['spell_source'].reject {|item| item.empty?}
+      params['filters']['spell_types'] = params['filters']['spell_types'].reject {|item| item.empty?}
 
       @spells = Spell.where(nil)
       # @spells = PlayerClass.where(name: params['filters'][:player_class]).first.spells if(params['filters'][:player_class]).present?
       @spells = @spells.level(params['filters']['spell_levels']) if (params['filters']['spell_levels'].present?)
       @spells = @spells.school(params['filters']['spell_schools']) if (params['filters']['spell_schools'].present?)
       @spells = @spells.source(params['filters']['spell_source']) if (params['filters']['spell_source'].present?)
+      @spells = @spells.ritual(params['filters']['spell_types']) if (params['filters']['spell_types'].present?)
     end
 
     respond_with @spells

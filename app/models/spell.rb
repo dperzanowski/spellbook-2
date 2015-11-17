@@ -18,6 +18,7 @@ class Spell < ActiveRecord::Base
   scope :level, -> (level) { where level: level }
   scope :school, -> (school) { where school: school }
   scope :source, -> (source) { where source: source }
+  scope :ritual, -> (ritual) { where ritual: ritual }
 
   def print_level
     if self.level == 0
