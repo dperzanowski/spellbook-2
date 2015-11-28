@@ -1,0 +1,6 @@
+%tr
+  %td
+    = link_to klass.name, [:admin, klass]
+  %td
+    = link_to "Edit", [:edit, :admin, klass], class: "btn btn-primary"
+    = link_to "Delete", [:admin, klass], class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }
