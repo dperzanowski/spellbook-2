@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127233753) do
+ActiveRecord::Schema.define(version: 20160129211658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20151127233753) do
   end
 
   add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
+
+  create_table "specializations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "klass_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "spells", force: :cascade do |t|
     t.string   "name"

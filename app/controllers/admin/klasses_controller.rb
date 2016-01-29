@@ -11,18 +11,18 @@ class Admin::KlassesController < ApplicationController
 
   def create
     @klass.save
-    respond_with [:admin, @klass]
+    respond_with @klass, location: [:admin, @klass]
   end
 
   def update
     @klass.update(klass_params)
 
-    respond_with [:admin, @klass]
+    respond_with @klass, location: [:admin, @klass]
   end
 
   def destroy
     @klass.destroy
-    respond_with [:admin, @klass]
+    respond_with @klass, location: [:admin, @klass]
   end
 
   private
