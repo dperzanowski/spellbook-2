@@ -1,4 +1,4 @@
 %div.button-group
   = link_to "New Specialization", [:new, :admin, :specialization], :class => 'btn btn-default btn-xs'
-  = link_to "Edit Specialization", [:edit, :admin, specialization], :class => 'btn btn-default btn-xs' if !specialization.try(:any?) && !specialization.try(:id).nil?
-  = link_to "Delete Specialization", [:admin, specialization], :class => 'btn btn-danger btn-xs', :method => :delete if !specialization.try(:any?) && !specialization.try(:id).nil?
+  = link_to "Edit Specialization", [:edit, :admin, specialization], :class => 'btn btn-default btn-xs' if !specialization&.any? && !specialization&.id.nil?
+  = link_to "Delete Specialization", [:admin, specialization], :class => 'btn btn-danger btn-xs', :method => :delete if !specialization&.any? && !specialization&.id.nil?
