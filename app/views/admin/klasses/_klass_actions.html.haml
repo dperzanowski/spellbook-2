@@ -1,4 +1,4 @@
 %div.button-group
   = link_to "New Class", [:new, :admin, :klass], :class => 'btn btn-default btn-xs'
-  = link_to "Edit Spell", [:edit, :admin, klass], :class => 'btn btn-default btn-xs' if !klass&.any? && !klass&.id.nil?
-  = link_to "Delete Spell", [:admin, klass], :class => 'btn btn-danger btn-xs', :method => :delete if !klass&.any? && !klass&.id.nil?
+  = link_to "Edit Spell", [:edit, :admin, klass], :class => 'btn btn-default btn-xs' if !klass.try(:any?) && !klass&.id.nil?
+  = link_to "Delete Spell", [:admin, klass], :class => 'btn btn-danger btn-xs', :method => :delete if !klass.try(:any?) && !klass&.id.nil?
