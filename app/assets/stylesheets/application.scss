@@ -11,6 +11,8 @@
  * file per style scope.
  */
 
- // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import "bootstrap-sprockets";
- @import "bootstrap";
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "dataTables/bootstrap/3/jquery.dataTables.bootstrap"
