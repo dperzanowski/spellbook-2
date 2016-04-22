@@ -1,5 +1,6 @@
 class Spell < ActiveRecord::Base
   include PgSearch
+  include Filterable
   multisearchable :against => [:name, :level, :school, :source]
 
   enum spell_levels: [

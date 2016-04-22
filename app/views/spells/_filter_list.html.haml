@@ -1,18 +1,37 @@
-= simple_form_for :filters, :url => spells_path, :html =>{:role => 'form', :id => 'spell-filter',:method => :get} do |f|
+= form_tag '', id: "spell-filter",  :method => :get do
   %fieldset
-    %label
-      Spell Source
-    = f.input :spell_source,collection: @spell_sources, as: :check_boxes, label: false, :checked => params["filters"].try(:[], :spell_source)
+    %label Spell Source
+  - @spell_sources.each do |source|
+    .checkbox
+      %label
+        = check_box_tag 'source[]', source, checked = (params[:source]&.include? source)
+        = source
+
   %fieldset
     %label
       Spell School
-    = f.input :spell_schools, collection: @spell_schools, as: :check_boxes, label: false, :checked => params["filters"].try(:[], :spell_schools)
+  - @spell_schools.each do |school|
+    .checkbox
+      %label
+        = check_box_tag 'school[]', school, checked = (params[:school]&.include? school)
+        = school
+
   %fieldset
     %label
       Spell Level
-    = f.input :spell_levels, collection: @spell_levels.map { |level| (level == 0) ? ["Cantrip", level] : ["Level #{level}", level] }, as: :check_boxes, label: false, :checked => params["filters"].try(:[], :spell_levels)
+  - @spell_levels.each do |level|
+    .checkbox
+      %label
+        = check_box_tag 'level[]', level.to_i, checked = (params[:level]&.include? level.to_s)
+        = (level.to_i == 0) ? "Cantrip" : "Level #{level}"
+
   %fieldset
     %label
       Spell Type
-    = f.input :spell_types, collection: {"Ritual" => 1}, as: :check_boxes, label: false, :checked => params["filters"].try(:[], :spell_types)
-  = f.submit :class => 'btn btn-default', :value => 'Filter'
+    .checkbox
+      %label
+        = check_box_tag 'ritual[]', 1, checked = (params[:ritual]&.include? "1")
+        = 'Ritual'
+
+
+  = submit_tag 'Filter', class: 'btn btn-default'
