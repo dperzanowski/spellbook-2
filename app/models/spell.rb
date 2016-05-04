@@ -3,6 +3,9 @@ class Spell < ActiveRecord::Base
   include Filterable
   multisearchable :against => [:name, :level, :school, :source]
 
+  has_many :klass_spells
+  has_many :klasses, through: :klass_spells, inverse_of: :spells
+
   enum spell_levels: [
     "Cantrip",
     "Level 1",

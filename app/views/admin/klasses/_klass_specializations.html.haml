@@ -1,0 +1,5 @@
+-if specializations = klass&.specializations
+  %h2 Specializations
+  %ul
+  - specializations.each do |specialization|
+    %li= specialization&.name

@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129211658) do
+ActiveRecord::Schema.define(version: 20160504170357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "klass_spells", force: :cascade do |t|
+    t.integer  "spell_id"
+    t.integer  "klass_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "klass_spells", ["klass_id"], name: "index_klass_spells_on_klass_id", using: :btree
+  add_index "klass_spells", ["spell_id"], name: "index_klass_spells_on_spell_id", using: :btree
 
   create_table "klasses", force: :cascade do |t|
     t.string   "name",       null: false

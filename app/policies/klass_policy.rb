@@ -1,7 +1,8 @@
 class KlassPolicy < ApplicationPolicy
   def permitted_attributes
     [
-      :name
+      :name,
+      {:spell_ids => []}
     ]
   end
 end

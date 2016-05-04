@@ -1,5 +1,7 @@
 = simple_form_for [:admin, klass], html: {class: 'form-horizontal' } do |f|
   = f.input :name
+  = f.association :spells, collection: Spell.all, as: :check_boxes, label: 'Class Spells'
+
 
   %div.btn-group.pull-right
     = f.button :submit, :class => 'btn btn-primary'
