@@ -47,4 +47,5 @@ group :development, :test do
   gem 'rails-footnotes'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'bullet'
 end
