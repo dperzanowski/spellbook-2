@@ -2,4 +2,4 @@
   %h2 Class Spells
   %ul
   - spells.each do |spell|
-    %li= spell&.name
+    %li= link_to spell&.name, spell

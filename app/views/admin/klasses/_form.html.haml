@@ -1,7 +1,12 @@
 = simple_form_for [:admin, klass], html: {class: 'form-horizontal' } do |f|
   = f.input :name
-  = f.association :spells, collection: Spell.all, as: :check_boxes, label: 'Class Spells'
-
+  .col-sm-offset-3.col-sm-9
+    -(0..9).each_slice(3) do |level_group|
+      .row
+        - level_group.each do |level|
+          %fieldset.col-sm-4.spell_group
+            %label= Spell::spell_levels.invert[level]
+            = f.collection_check_boxes :spell_ids, Spell.all.level(level), :id, :name, :item_wrapper_class => 'checkbox'
 
   %div.btn-group.pull-right
     = f.button :submit, :class => 'btn btn-primary'
