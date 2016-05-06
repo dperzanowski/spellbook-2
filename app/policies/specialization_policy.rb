@@ -2,7 +2,8 @@ class SpecializationPolicy < ApplicationPolicy
   def permitted_attributes
     [
       :name,
-      :klass_id
+      :klass_id,
+      {:spell_ids => []}
     ]
 
   end

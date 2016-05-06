@@ -5,6 +5,9 @@ class Spell < ActiveRecord::Base
 
   has_many :klass_spells
   has_many :klasses, through: :klass_spells, inverse_of: :spells
+  
+  has_many :specialization_spells
+  has_many :specializations, through: :specialization_spells, inverse_of: :spells
 
   enum spell_levels: [
     "Cantrip",

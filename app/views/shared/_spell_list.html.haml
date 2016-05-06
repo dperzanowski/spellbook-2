@@ -1,5 +1,5 @@
--if spells = klass&.spells
-  %h2 Class Spells
+-if spells = entity&.spells
+  %h2="#{entity.to_s.titleize} Spells"
   %ul
   - spells.each do |spell|
     %li= link_to spell&.name, spell

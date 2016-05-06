@@ -2,5 +2,7 @@
   =@specialization.name
 
 = render 'specialization_actions', specialization: @specialization
+%div.spells
+  = render '/shared/spell_list', entity: @specialization
 
 -# TODO: show spells assigned to the specialization
