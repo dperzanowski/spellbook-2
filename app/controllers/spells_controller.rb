@@ -9,7 +9,7 @@ class SpellsController < ApplicationController
     @spell_levels = Spell.order(level: :asc).uniq.pluck(:level)
     @spell_sources = Spell.order(source: :asc).uniq.pluck(:source)
 
-    @spells = Spell.all.filter(params.slice(:level, :school, :source, :type)).page params[:page]
+    @spells = Spell.all.filter(params.slice(:level, :school, :source, :type))
 
     respond_with @spells
   end
