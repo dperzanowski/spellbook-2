@@ -16,3 +16,16 @@
             %li
               = link_to "Classes", admin_klasses_path
               = link_to "Specializations", admin_specializations_path
+
+      %ul.nav.navbar-nav.navbar-right
+        -if !user_signed_in?
+          %li
+            = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path
+        -else
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              = current_user.email
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to 'Logout', destroy_user_session_path

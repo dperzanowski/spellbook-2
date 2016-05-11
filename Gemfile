@@ -26,6 +26,10 @@ gem 'pg_search'
 
 gem 'pundit'
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+
 gem 'kaminari'
 
 gem 'jquery-datatables-rails', '~> 3.3.0'

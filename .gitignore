@@ -16,4 +16,10 @@
 !/log/.keep
 /tmp
 
+# Ignore local_env.yml
+/config/local_env.yml
+
+# Ignore .DS_Stores
+*.DS_Store
+
 .byebug_history
