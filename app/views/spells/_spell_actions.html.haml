@@ -1,4 +1,5 @@
 %div.button-group
   = link_to "New Spell", new_spell_path, :class => 'btn btn-default btn-xs'
-  = link_to "Edit Spell", edit_spell_path(spell), :class => 'btn btn-default btn-xs' if !spell.try(:any?) && !spell.id.nil?
-  = link_to "Delete Spell", spell_path(spell), :class => 'btn btn-danger btn-xs', :method => :delete if !spell.try(:any?) && !spell.id.nil?
+  -if params['action'] != 'index'
+    = link_to "Edit Spell", edit_spell_path(spell), :class => 'btn btn-default btn-xs' if !spell.nil? && !spell.id.nil?
+    = link_to "Delete Spell", spell_path(spell), :class => 'btn btn-danger btn-xs', :method => :delete if !spell.nil? && !spell.id.nil?

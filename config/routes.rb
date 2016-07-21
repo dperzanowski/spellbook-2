@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   end
 
   root 'spells#index'
-  resources :spells
 
   namespace :admin do
     resources :klasses, :path => :classes
     resources :specializations
   end
+
+  resources :spells
+  resources :characters
 end
