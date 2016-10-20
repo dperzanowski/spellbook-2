@@ -1,0 +1,4 @@
+%div.button-group
+  = link_to "New User", [:new, :admin, :user], :class => 'btn btn-default btn-xs'
+  = link_to "Edit User", [:edit, :admin, user], :class => 'btn btn-default btn-xs' if !user.try(:any?) && !user&.id.nil?
+  = link_to "Delete User", [:admin, user], :class => 'btn btn-danger btn-xs', :method => :delete if !user.try(:any?) && !user&.id.nil?

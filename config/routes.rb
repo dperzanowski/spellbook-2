@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :klasses, :path => :classes
     resources :specializations
+    resources :users
   end
 
   resources :spells
