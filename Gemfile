@@ -41,7 +41,8 @@ group :development, :test do
   gem 'quiet_assets'
 
   gem 'rspec-rails'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'guard-rails'

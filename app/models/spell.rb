@@ -12,6 +12,8 @@ class Spell < ActiveRecord::Base
   has_many :character_spells
   has_many :characters, through: :character_spells, inverse_of: :spells
 
+  validates_presence_of :name
+
   enum spell_levels: [
     "Cantrip",
     "Level 1",

@@ -5,6 +5,8 @@ class Character < ActiveRecord::Base
   has_many :character_spells
   has_many :spells, through: :character_spells, inverse_of: :characters
 
+  validates_presence_of :name
+
   def to_s
     name
   end

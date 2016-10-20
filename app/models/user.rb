@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
 
   has_many :characters
 
+  validates_presence_of :email
+  validates_presence_of :encrypted_password
+  validates_presence_of :sign_in_count
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider

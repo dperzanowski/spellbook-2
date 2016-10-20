@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020145730) do
+ActiveRecord::Schema.define(version: 20161020182008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,14 +73,14 @@ ActiveRecord::Schema.define(version: 20161020145730) do
   add_index "specialization_spells", ["spell_id"], name: "index_specialization_spells_on_spell_id", using: :btree
 
   create_table "specializations", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.integer  "klass_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "spells", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",         null: false
     t.integer  "level"
     t.boolean  "ritual"
     t.string   "school"
