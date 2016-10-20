@@ -3,13 +3,14 @@
   = f.association :klass
   = f.association :user, collection: User.all.map{|u| [u.email, u.id]}
 
-  .col-sm-offset-3.col-sm-9
-    -(0..9).each_slice(3) do |level_group|
-      .row
-        - level_group.each do |level|
-          %fieldset.col-sm-4.spell_group
-            %label= Spell::spell_levels.invert[level]
-            = f.collection_check_boxes :spell_ids, character.klass.spells.level(level), :id, :name, :item_wrapper_class => 'checkbox'
+  -if action_name != "new"
+    .col-sm-offset-3.col-sm-9
+      -(0..9).each_slice(3) do |level_group|
+        .row
+          - level_group.each do |level|
+            %fieldset.col-sm-4.spell_group
+              %label= Spell::spell_levels.invert[level]
+              = f.collection_check_boxes :spell_ids, character.klass.spells.level(level), :id, :name, :item_wrapper_class => 'checkbox'
 
   %div.btn-group.pull-right
     = f.button :submit, :class => 'btn btn-primary'
