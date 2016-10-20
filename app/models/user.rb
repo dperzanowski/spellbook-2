@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   has_many :characters
 
   validates_presence_of :email
-  validates_presence_of :encrypted_password
-  validates_presence_of :sign_in_count
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -22,10 +20,10 @@ class User < ActiveRecord::Base
 
     # Uncomment the section below if you want users to be created if they don't exist
     unless user
-        user = User.create(
-           email: data["email"],
-           encrypted_password: Devise.friendly_token[0,20]
-        )
+      user = User.create(
+         email: data["email"],
+         encrypted_password: Devise.friendly_token[0,20]
+      )
     end
     user
   end
