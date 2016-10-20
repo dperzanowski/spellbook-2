@@ -9,7 +9,7 @@
         - level_group.each do |level|
           %fieldset.col-sm-4.spell_group
             %label= Spell::spell_levels.invert[level]
-            = f.collection_check_boxes :spell_ids, Spell.all.level(level), :id, :name, :item_wrapper_class => 'checkbox'
+            = f.collection_check_boxes :spell_ids, character.klass.spells.level(level), :id, :name, :item_wrapper_class => 'checkbox'
 
   %div.btn-group.pull-right
     = f.button :submit, :class => 'btn btn-primary'

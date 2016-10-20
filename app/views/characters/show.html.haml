@@ -1,3 +1,6 @@
 %h1
   = @character.name.titleize
 = render 'character_actions', character: @character
+
+%div.spells
+  = render '/shared/spell_list', entity: @character

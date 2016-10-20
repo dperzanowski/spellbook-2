@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020142114) do
+ActiveRecord::Schema.define(version: 20161020145730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "character_spells", force: :cascade do |t|
+    t.integer  "character_id"
+    t.integer  "spell_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "character_spells", ["character_id"], name: "index_character_spells_on_character_id", using: :btree
+  add_index "character_spells", ["spell_id"], name: "index_character_spells_on_spell_id", using: :btree
 
   create_table "characters", force: :cascade do |t|
     t.string   "name",       null: false

@@ -3,7 +3,8 @@ class CharacterPolicy < ApplicationPolicy
     [
       :name,
       :klass_id,
-      :user_id
+      :user_id,
+      {:spell_ids => []}
     ]
   end
 end
