@@ -1,4 +1,4 @@
-class KlassPolicy < ApplicationPolicy
+class KlassPolicy < AdminApplicationPolicy
   def permitted_attributes
     [
       :name,

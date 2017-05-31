@@ -1,10 +1,12 @@
 class Admin::KlassesController < ApplicationController
   before_action :set_klass, only: %i[new create edit update show destroy]
+  before_action ->{authorize @klass}, only: %i[new create edit update show destroy]
 
   respond_to :html, :js, :json
 
   def index
     @klasses = Klass.all
+    authorize @klasses
 
     respond_with @klasses
   end

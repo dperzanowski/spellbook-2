@@ -1,4 +1,4 @@
-class SpecializationPolicy < ApplicationPolicy
+class SpecializationPolicy < AdminApplicationPolicy
   def permitted_attributes
     [
       :name,
