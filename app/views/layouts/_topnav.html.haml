@@ -10,15 +10,16 @@
           = link_to "Spells", [Spell]
         %li
           = link_to "Characters", [Character]
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Admin
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              = link_to "Classes", [:admin, :klasses]
-              = link_to "Specializations", [:admin, :specializations]
-              = link_to "Users", [:admin, :users]
+        -if current_user.admin?
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              Admin
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to "Classes", [:admin, :klasses]
+                = link_to "Specializations", [:admin, :specializations]
+                = link_to "Users", [:admin, :users]
 
       %ul.nav.navbar-nav.navbar-right
         -if !user_signed_in?
