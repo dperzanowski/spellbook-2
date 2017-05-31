@@ -1,10 +1,12 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: %i[new create edit update show destroy]
+  before_action ->{authorize @user}, only: %i[new create edit update show destroy]
 
   respond_to :html, :js, :json
 
   def index
     @users = User.all
+    authorize @users
 
     respond_with @users
   end
