@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -21,10 +20,9 @@ ActiveRecord::Schema.define(version: 20161020192710) do
     t.integer  "spell_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["character_id"], name: "index_character_spells_on_character_id", using: :btree
+    t.index ["spell_id"], name: "index_character_spells_on_spell_id", using: :btree
   end
-
-  add_index "character_spells", ["character_id"], name: "index_character_spells_on_character_id", using: :btree
-  add_index "character_spells", ["spell_id"], name: "index_character_spells_on_spell_id", using: :btree
 
   create_table "characters", force: :cascade do |t|
     t.string   "name",       null: false
@@ -39,38 +37,34 @@ ActiveRecord::Schema.define(version: 20161020192710) do
     t.integer  "klass_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["klass_id"], name: "index_klass_spells_on_klass_id", using: :btree
+    t.index ["spell_id"], name: "index_klass_spells_on_spell_id", using: :btree
   end
-
-  add_index "klass_spells", ["klass_id"], name: "index_klass_spells_on_klass_id", using: :btree
-  add_index "klass_spells", ["spell_id"], name: "index_klass_spells_on_spell_id", using: :btree
 
   create_table "klasses", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_klasses_on_name", unique: true, using: :btree
   end
-
-  add_index "klasses", ["name"], name: "index_klasses_on_name", unique: true, using: :btree
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
-    t.integer  "searchable_id"
     t.string   "searchable_type"
+    t.integer  "searchable_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
-
-  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
   create_table "specialization_spells", force: :cascade do |t|
     t.integer  "specialization_id"
     t.integer  "spell_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["specialization_id"], name: "index_specialization_spells_on_specialization_id", using: :btree
+    t.index ["spell_id"], name: "index_specialization_spells_on_spell_id", using: :btree
   end
-
-  add_index "specialization_spells", ["specialization_id"], name: "index_specialization_spells_on_specialization_id", using: :btree
-  add_index "specialization_spells", ["spell_id"], name: "index_specialization_spells_on_spell_id", using: :btree
 
   create_table "specializations", force: :cascade do |t|
     t.string   "name",       null: false
@@ -108,9 +102,8 @@ ActiveRecord::Schema.define(version: 20161020192710) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.boolean  "admin",                  default: false, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

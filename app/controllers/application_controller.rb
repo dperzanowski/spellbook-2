@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def pundit_user
     current_user
   end
+
+  def current_user 
+    User.first
+  end
 end
